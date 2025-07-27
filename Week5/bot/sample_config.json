@@ -3,9 +3,9 @@
     "google_api_key": "",
     "token": "",
     "permissions": "",
-    "application_id": "",
-    "guild_id": 0,
-    "channel_id": 0,
+    "application_id": "1399047554917728340",
+    "guild_id": 1398988570953384058,
+    "channel_id": 1398990139778404445,
     "sync_commands_globally": true,
     "owners": [
         632582343038599168
