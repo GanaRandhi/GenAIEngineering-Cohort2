@@ -12,7 +12,7 @@ os.environ['OPENAI_API_BASE'] = 'https://openrouter.ai/api/v1'
 os.environ['OPENAI_BASE_URL'] = 'https://openrouter.ai/api/v1'
 
 
-topic = "Artificial Intelligence in Healthcare"
+topic = "Artificial Intelligence in Renewable Energy"
 
 # Define multiple agents for a content creation workflow
 search_tool = SerperDevTool()

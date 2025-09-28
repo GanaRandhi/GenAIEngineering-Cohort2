@@ -13,9 +13,7 @@ os.environ['OPENAI_BASE_URL'] = 'https://openrouter.ai/api/v1'
 
 
 
-from crewai.tools import tool
-
-# @tool("Compount Interest Calculator")
+@tool("Compount Interest Calculator")
 def calculate_compound_interest_func(principal: float, rate: float, time: int, n: int = 12) -> str:
     """
     Calculate compound interest.

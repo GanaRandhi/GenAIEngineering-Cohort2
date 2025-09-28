@@ -42,6 +42,14 @@ regional_analysts = {
         tools=[search_tool],
         llm=llm,
         verbose=True
+    ),
+    'africa': Agent(
+        role='African Market Analyst',
+        goal='Analyze AI customer service market trends in Africa',
+        backstory="Expert in APAC markets with understanding of rapid technology adoption and diverse regulatory landscapes.",
+        tools=[search_tool],
+        llm=llm,
+        verbose=True
     )
 }
 
