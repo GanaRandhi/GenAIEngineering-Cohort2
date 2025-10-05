@@ -1,54 +1,50 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-import pandas as pd
 
-# Load the dataset
-filename = 'imdb_200.csv'
-data = pd.read_csv(filename)
+# Data obtained from the IMDb dataset
+movies = [
+    {"title": "Guardians of the Galaxy", "director": "James Gunn", "genres": ["Action", "Adventure", "Sci-Fi"], "actors": ["Chris Pratt", "Vin Diesel", "Bradley Cooper", "Zoe Saldana"], "rating": 8.1, "revenue": 333.13},
+    {"title": "Prometheus", "director": "Ridley Scott", "genres": ["Adventure", "Mystery", "Sci-Fi"], "actors": ["Noomi Rapace", "Logan Marshall-Green", "Michael Fassbender", "Charlize Theron"], "rating": 7.0, "revenue": 126.46},
+    {"title": "Split", "director": "M. Night Shyamalan", "genres": ["Horror", "Thriller"], "actors": ["James McAvoy", "Anya Taylor-Joy", "Haley Lu Richardson", "Jessica Sula"], "rating": 7.3, "revenue": 138.12},
+    {"title": "Sing", "director": "Christophe Lourdelet", "genres": ["Animation", "Comedy", "Family"], "actors": ["Matthew McConaughey", "Reese Witherspoon", "Seth MacFarlane", "Scarlett Johansson"], "rating": 7.2, "revenue": 270.32},
+    {"title": "Suicide Squad", "director": "David Ayer", "genres": ["Action", "Adventure", "Fantasy"], "actors": ["Will Smith", "Jared Leto", "Margot Robbie", "Viola Davis"], "rating": 6.2, "revenue": 325.02}
+]
 
-# Create a new graph
 G = nx.Graph()
 
-# Iterate over each row in the DataFrame
-for _, row in data.iterrows():
-    movie = row['Title']
-    director = row['Director']
-    genres = str(row['Genre']).split(',')
-    actors = str(row['Actors']).split(', ')
-    rating = row['Rating']
+# Add nodes and edges
+def add_movie_data(movie):
+    G.add_node(movie['title'], type='Movie')
+    G.add_node(movie['director'], type='Director')
+    G.add_edge(movie['title'], movie['director'], weight=movie['rating'])
 
-    # Add nodes for movies, directors, genres, and actors
-    G.add_node(movie, node_type='movie', rating=rating)
-    G.add_node(director, node_type='director')
-    
-    for genre in genres:
-        G.add_node(genre, node_type='genre')    
-    
-    for actor in actors:
-        G.add_node(actor, node_type='actor')
+    for genre in movie['genres']:
+        G.add_node(genre, type='Genre')
+        G.add_edge(movie['title'], genre, weight=movie['rating'])
 
-    # Add edges between movie and director, genres, actors
-    G.add_edge(movie, director, weight=rating)
-    for genre in genres:
-        G.add_edge(movie, genre, weight=rating)
-    for actor in actors:
-        G.add_edge(movie, actor, weight=rating)
+    for actor in movie['actors']:
+        G.add_node(actor, type='Actor')
+        G.add_edge(movie['title'], actor, weight=movie['rating'])
 
-# Set node colors based on type
-color_map = {
-    'movie': 'lightblue',
-    'director': 'orange',
-    'genre': 'green',
-    'actor': 'purple'
-}
 
-colors = [color_map[G.nodes[node]['node_type']] for node in G.nodes]
+for movie in movies:
+    add_movie_data(movie)
 
-# Plot the graph
-plt.figure(figsize=(15, 15))
-pos = nx.spring_layout(G, k=0.5, iterations=50)  # Fruchterman-Reingold layout
-nx.draw(G, pos, with_labels=False, node_color=colors, node_size=50, edge_color='gray')
-nx.draw_networkx_labels(G, pos, {node: node for node in G.nodes if G.nodes[node]['node_type'] == 'movie'})
-plt.title('IMDB Movie Knowledge Graph')
-plt.savefig('knowledge_graph.png')
+# Draw the graph
+pos = nx.spring_layout(G, k=0.5, iterations=50)
+plt.figure(figsize=(12, 12))
+
+# Define colors based on node types
+def node_color(node_type):
+    return {'Movie': 'blue', 'Director': 'green', 'Actor': 'red', 'Genre': 'orange'}.get(node_type, 'grey')
+
+# Node color and size
+colors = [node_color(G.nodes[node]['type']) for node in G.nodes()]
+sizes = [300 if G.nodes[node]['type'] == 'Movie' 
+         else 200 if G.nodes[node]['type'] == 'Director' 
+         else 100 for node in G.nodes()]
+
+nx.draw(G, pos, with_labels=True, node_color=colors, node_size=sizes, font_size=8, font_weight='bold', edge_color='black')
+plt.title("Movie Knowledge Graph")
+plt.savefig("movie_knowledge_graph.png")
 plt.show()

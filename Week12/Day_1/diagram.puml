@@ -1,0 +1,33 @@
+@startuml
+class Movie {
+    +title: String
+    +director: String
+    +genres: List<String>
+    +actors: List<String>
+    +rating: Float
+    +revenue: Float
+}
+
+class Graph {
+    +nodes: Dict<String, String>
+    +edges: List<Tuple<String, String, Float>>
+    +add_node(name: String, type: String)
+    +add_edge(node1: String, node2: String, weight: Float)
+}
+
+Graph --> Movie : contains
+
+class NetworkX {
+    +Graph(): Graph
+    +spring_layout(graph: Graph, k: Float, iterations: int): Dict<String, Tuple<Float, Float>>
+}
+
+class Matplotlib {
+    +figure(figsize: Tuple<Float, Float>)
+    +show()
+    +savefig(filename: String)
+}
+
+Matplotlib -right-> Graph : visualizes
+NetworkX -left-> Graph : implements
+@enduml

@@ -1,62 +1,53 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-import pandas as pd
 
-# Load the data
-data = pd.read_csv('imdb.csv')
-data = data.head(200)  # Use only the first 200 records
+# Sample data from IMDB
+
+data = [
+    {"Rank": "1", "Title": "Guardians of the Galaxy", "Genre": "Action,Adventure,Sci-Fi", "Director": "James Gunn", "Actors": "Chris Pratt, Vin Diesel, Bradley Cooper, Zoe Saldana", "Rating": "8.1", "Revenue (Millions)": "333.13"},
+    {"Rank": "2", "Title": "Prometheus", "Genre": "Adventure,Mystery,Sci-Fi", "Director": "Ridley Scott", "Actors": "Noomi Rapace, Logan Marshall-Green, Michael Fassbender, Charlize Theron", "Rating": "7", "Revenue (Millions)": "126.46"},
+    {"Rank": "3", "Title": "Split", "Genre": "Horror,Thriller", "Director": "M. Night Shyamalan", "Actors": "James McAvoy, Anya Taylor-Joy, Haley Lu Richardson, Jessica Sula", "Rating": "7.3", "Revenue (Millions)": "138.12"},
+    {"Rank": "4", "Title": "Sing", "Genre": "Animation,Comedy,Family", "Director": "Christophe Lourdelet", "Actors": "Matthew McConaughey,Reese Witherspoon, Seth MacFarlane, Scarlett Johansson", "Rating": "7.2", "Revenue (Millions)": "270.32"},
+    {"Rank": "5", "Title": "Suicide Squad", "Genre": "Action,Adventure,Fantasy", "Director": "David Ayer", "Actors": "Will Smith, Jared Leto, Margot Robbie, Viola Davis", "Rating": "6.2", "Revenue (Millions)": "325.02"},
+    # More data...
+]
 
 # Create a directed graph
-G = nx.DiGraph()
+G = nx.Graph()
 
 # Add nodes and edges
-for index, row in data.iterrows():
-    movie_title = row['Title']
-    director = row['Director']
-    genres = row['Genre'].split(',')
-    actors = row['Actors'].split(',')
-    rating = float(row['Rating'] if pd.notnull(row['Rating']) else 0)
-    revenue = float(row['Revenue (Millions)'] if pd.notnull(row['Revenue (Millions)']) else 0)
-    # Using rating as the weight for now
-    weight = rating if rating > 0 else revenue
+for movie in data:
+    title = movie['Title']
+    director = movie['Director']
+    genres = movie['Genre'].split(',')
+    actors = movie['Actors'].split(', ')
+    rating = float(movie['Rating'])
+    revenue = float(movie['Revenue (Millions)']) if movie['Revenue (Millions)'] else 0
     
-    # Add movie node
-    G.add_node(movie_title, type='movie')
+    # Movie node
+    G.add_node(title, type='movie')
     
-    # Add and connect director node
+    # Director node
     G.add_node(director, type='director')
-    G.add_edge(director, movie_title, weight=weight)
+    G.add_edge(title, director, weight=revenue)
     
-    # Add and connect genre nodes
+    # Genre nodes
     for genre in genres:
-        genre = genre.strip()
         G.add_node(genre, type='genre')
-        G.add_edge(movie_title, genre, weight=weight)
-        
-    # Add and connect actor nodes
+        G.add_edge(title, genre, weight=rating)
+    
+    # Actor nodes
     for actor in actors:
-        actor = actor.strip()
         G.add_node(actor, type='actor')
-        G.add_edge(movie_title, actor, weight=weight)
+        G.add_edge(title, actor, weight=rating)
+
+# Draw the graph
+pos = nx.spring_layout(G, k=0.15, iterations=20)
+nx.draw(G, pos, with_labels=True, node_size=20, font_size=8)
+plt.savefig("knowledge_graph.png")
 
 # Save the graph as GraphML
-nx.write_graphml(G, 'movie_kg.graphml')
+nx.write_graphml(G, "movie_kg.graphml")
 
-# Visualize the graph
-plt.figure(figsize=(12, 12))
-
-# Using spring layout for better visual separation
-pos = nx.spring_layout(G, k=0.1, iterations=20)
-options = {
-    "with_labels": True,
-    "node_color": "skyblue",
-    "node_size": 50,
-    "font_size": 8,
-    "width": 0.5,
-}
-
-nx.draw(G, pos, **options)
-
-# Save visualization
-plt.savefig('knowledge_graph.png')
-plt.show()
+# Output the path to the saved graph image
+result = "knowledge_graph.png"

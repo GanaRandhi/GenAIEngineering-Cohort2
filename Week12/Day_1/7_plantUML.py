@@ -68,6 +68,6 @@ plantuml_agent = Agent(
 
 # Usage
 plantuml_agent.print_response(
-    "Read the file '6_python_agent.py' and create a PlantUML flow diagram. Save it as 'diagram.puml'",
+    "Read the file 'knowledge_graph.py' and create a RackDiag flow diagram. Save it as 'diagram.puml'",
     stream=True
 )

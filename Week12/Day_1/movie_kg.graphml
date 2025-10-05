@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d1" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Guardians of the Galaxy">
+  <data key="d0">movie</data>
+</node>
+<node id="James Gunn">
+  <data key="d0">director</data>
+</node>
+<node id="Action">
+  <data key="d0">genre</data>
+</node>
+<node id="Adventure">
+  <data key="d0">genre</data>
+</node>
+<node id="Sci-Fi">
+  <data key="d0">genre</data>
+</node>
+<node id="Chris Pratt">
+  <data key="d0">actor</data>
+</node>
+<node id="Vin Diesel">
+  <data key="d0">actor</data>
+</node>
+<node id="Bradley Cooper">
+  <data key="d0">actor</data>
+</node>
+<node id="Zoe Saldana">
+  <data key="d0">actor</data>
+</node>
+<node id="Prometheus">
+  <data key="d0">movie</data>
+</node>
+<node id="Ridley Scott">
+  <data key="d0">director</data>
+</node>
+<node id="Mystery">
+  <data key="d0">genre</data>
+</node>
+<node id="Noomi Rapace">
+  <data key="d0">actor</data>
+</node>
+<node id="Logan Marshall-Green">
+  <data key="d0">actor</data>
+</node>
+<node id="Michael Fassbender">
+  <data key="d0">actor</data>
+</node>
+<node id="Charlize Theron">
+  <data key="d0">actor</data>
+</node>
+<node id="Split">
+  <data key="d0">movie</data>
+</node>
+<node id="M. Night Shyamalan">
+  <data key="d0">director</data>
+</node>
+<node id="Horror">
+  <data key="d0">genre</data>
+</node>
+<node id="Thriller">
+  <data key="d0">genre</data>
+</node>
+<node id="James McAvoy">
+  <data key="d0">actor</data>
+</node>
+<node id="Anya Taylor-Joy">
+  <data key="d0">actor</data>
+</node>
+<node id="Haley Lu Richardson">
+  <data key="d0">actor</data>
+</node>
+<node id="Jessica Sula">
+  <data key="d0">actor</data>
+</node>
+<node id="Sing">
+  <data key="d0">movie</data>
+</node>
+<node id="Christophe Lourdelet">
+  <data key="d0">director</data>
+</node>
+<node id="Animation">
+  <data key="d0">genre</data>
+</node>
+<node id="Comedy">
+  <data key="d0">genre</data>
+</node>
+<node id="Family">
+  <data key="d0">genre</data>
+</node>
+<node id="Matthew McConaughey,Reese Witherspoon">
+  <data key="d0">actor</data>
+</node>
+<node id="Seth MacFarlane">
+  <data key="d0">actor</data>
+</node>
+<node id="Scarlett Johansson">
+  <data key="d0">actor</data>
+</node>
+<node id="Suicide Squad">
+  <data key="d0">movie</data>
+</node>
+<node id="David Ayer">
+  <data key="d0">director</data>
+</node>
+<node id="Fantasy">
+  <data key="d0">genre</data>
+</node>
+<node id="Will Smith">
+  <data key="d0">actor</data>
+</node>
+<node id="Jared Leto">
+  <data key="d0">actor</data>
+</node>
+<node id="Margot Robbie">
+  <data key="d0">actor</data>
+</node>
+<node id="Viola Davis">
+  <data key="d0">actor</data>
+</node>
+<edge source="Guardians of the Galaxy" target="James Gunn">
+  <data key="d1">333.13</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Action">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Adventure">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Sci-Fi">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Chris Pratt">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Vin Diesel">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Bradley Cooper">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Guardians of the Galaxy" target="Zoe Saldana">
+  <data key="d1">8.1</data>
+</edge>
+<edge source="Action" target="Suicide Squad">
+  <data key="d1">6.2</data>
+</edge>
+<edge source="Adventure" target="Prometheus">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Adventure" target="Suicide Squad">
+  <data key="d1">6.2</data>
+</edge>
+<edge source="Sci-Fi" target="Prometheus">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Prometheus" target="Ridley Scott">
+  <data key="d1">126.46</data>
+</edge>
+<edge source="Prometheus" target="Mystery">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Prometheus" target="Noomi Rapace">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Prometheus" target="Logan Marshall-Green">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Prometheus" target="Michael Fassbender">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Prometheus" target="Charlize Theron">
+  <data key="d1">7.0</data>
+</edge>
+<edge source="Split" target="M. Night Shyamalan">
+  <data key="d1">138.12</data>
+</edge>
+<edge source="Split" target="Horror">
+  <data key="d1">7.3</data>
+</edge>
+<edge source="Split" target="Thriller">
+  <data key="d1">7.3</data>
+</edge>
+<edge source="Split" target="James McAvoy">
+  <data key="d1">7.3</data>
+</edge>
+<edge source="Split" target="Anya Taylor-Joy">
+  <data key="d1">7.3</data>
+</edge>
+<edge source="Split" target="Haley Lu Richardson">
+  <data key="d1">7.3</data>
+</edge>
+<edge source="Split" target="Jessica Sula">
+  <data key="d1">7.3</data>
+</edge>
+<edge source="Sing" target="Christophe Lourdelet">
+  <data key="d1">270.32</data>
+</edge>
+<edge source="Sing" target="Animation">
+  <data key="d1">7.2</data>
+</edge>
+<edge source="Sing" target="Comedy">
+  <data key="d1">7.2</data>
+</edge>
+<edge source="Sing" target="Family">
+  <data key="d1">7.2</data>
+</edge>
+<edge source="Sing" target="Matthew McConaughey,Reese Witherspoon">
+  <data key="d1">7.2</data>
+</edge>
+<edge source="Sing" target="Seth MacFarlane">
+  <data key="d1">7.2</data>
+</edge>
+<edge source="Sing" target="Scarlett Johansson">
+  <data key="d1">7.2</data>
+</edge>
+<edge source="Suicide Squad" target="David Ayer">
+  <data key="d1">325.02</data>
+</edge>
+<edge source="Suicide Squad" target="Fantasy">
+  <data key="d1">6.2</data>
+</edge>
+<edge source="Suicide Squad" target="Will Smith">
+  <data key="d1">6.2</data>
+</edge>
+<edge source="Suicide Squad" target="Jared Leto">
+  <data key="d1">6.2</data>
+</edge>
+<edge source="Suicide Squad" target="Margot Robbie">
+  <data key="d1">6.2</data>
+</edge>
+<edge source="Suicide Squad" target="Viola Davis">
+  <data key="d1">6.2</data>
+</edge>
+</graph></graphml>
