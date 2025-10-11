@@ -10,17 +10,21 @@ for var in env_vars_to_clear:
         del os.environ[var]
 
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_ROUTER_KEY")
+open_router_key = os.getenv("OPEN_ROUTER_KEY")
+if open_router_key is not None:
+    os.environ["OPENAI_API_KEY"] = open_router_key
+else:
+    raise EnvironmentError("OPEN_ROUTER_KEY environment variable is not set.")
 os.environ['OPENAI_API_BASE'] = 'https://openrouter.ai/api/v1'
 os.environ['OPENAI_BASE_URL'] = 'https://openrouter.ai/api/v1'
 
 # Clear conflicting environment variables
-env_vars_to_clear = ['OPENAI_API_KEY', 'OPENAI_BASE_URL', 'OPENAI_API_BASE']
-for var in env_vars_to_clear:
-    if os.getenv(var):
-        print(f"⚠️  Removing conflicting {var}")
-        del os.environ[var]
-os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_KEY")
+# env_vars_to_clear = ['OPENAI_API_KEY', 'OPENAI_BASE_URL', 'OPENAI_API_BASE']
+# for var in env_vars_to_clear:
+    # if os.getenv(var):
+        # print(f"⚠️  Removing conflicting {var}")
+        # del os.environ[var]
+# os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_KEY")
 
 import json
 import yaml
