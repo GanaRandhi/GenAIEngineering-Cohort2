@@ -10,6 +10,11 @@ from langchain.schema import BaseOutputParser
 # Set your OpenAI API key
 # os.environ["OPENAI_API_KEY"] = "your-api-key-here"
 
+from dotenv import load_dotenv
+# Load environment variables
+load_dotenv()
+os.environ["OPENAI_API_KEY"] = os.getenv("OPEN_AI_KEY")
+
 # Initialize the LLM
 llm = ChatOpenAI(
     model="gpt-3.5-turbo",
